@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Categories Page";
+}
+@model Category
+<div class="row">
+    <div class="col">
+        <p class="fs-4 text-center">New Category</p>
+        <form method="POST" asp-controller="Category" asp-action="AddCategory">
+            <div class="form-group row p-1">
+                <label asp-for="Name" class="col-sm-4 col-form-label">Name:</label>
+                <input asp-for="Name" class="col-sm-8">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Create" class="btn btn-primary">
+        </form>
+    </div>
+    <div class="col">
+        <p class="fs-4 text-center">All Categories</p>
+        @if (ViewBag.AllCategories.Count > 0)
+        {
+            @foreach(Category c in ViewBag.AllCategories)
+            {
+                <p><a href="/categories/@c.CategoryId">@c.Name</a></p>
+            }
+        }
+        else
+        {
+            <p>None added yet!</p>
+        }
+    </div>
+</div>

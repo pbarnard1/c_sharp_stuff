@@ -1,0 +1,30 @@
+@model Wedding
+@{
+    ViewData["Title"] = "Plan a Wedding";
+    Layout = "_LoggedInLayout";
+}
+
+<h1>Plan a wedding!</h1>
+<form method="POST" asp-controller="Wedding" asp-action="AddWedding">
+    <div class="form-group row p-1">
+        <label asp-for="MarriedOne" class="col-sm-4 col-form-label">First person getting married:</label>
+        <input asp-for="MarriedOne" class="col-sm-8">
+        <span asp-validation-for="MarriedOne" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="MarriedTwo" class="col-sm-4 col-form-label">Second person getting married:</label>
+        <input asp-for="MarriedTwo" class="col-sm-8">
+        <span asp-validation-for="MarriedTwo" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="WeddingDate" class="col-sm-4 col-form-label">Wedding date:</label>
+        <input asp-for="WeddingDate" class="col-sm-8" type="date"> <!-- If this is DateOnly, we have to add type="date" ourselves. -->
+        <span asp-validation-for="WeddingDate" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="Address" class="col-sm-4 col-form-label">Address:</label>
+        <input asp-for="Address" class="col-sm-8">
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add wedding" class="btn btn-primary">
+</form>

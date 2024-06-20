@@ -1,0 +1,34 @@
+@model List<Dish>
+@{
+    ViewData["Title"] = "All dishes";
+}
+
+<h1 class="text-center">Yum!  Check out our tasty dishes!</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Dish d in @Model)
+        {
+            <tr class="align-middle">
+                <td>@d.Name</td>
+                <td>@d.Creator.FirstName @d.Creator.LastName</td>
+                <td>@d.Tastiness</td>
+                <td>@d.Calories</td>
+                <td>
+                    <a asp-action="EditDishPage" asp-controller="Dish" asp-route-id="@d.DishId" class="btn btn-warning">Edit</a>
+                    <form asp-action="DeleteDish" asp-controller="Dish" asp-route-id="@d.DishId" class="d-inline" method="POST">
+                        <input type="Submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

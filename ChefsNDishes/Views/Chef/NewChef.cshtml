@@ -1,0 +1,24 @@
+@model Chef
+@{
+    ViewData["Title"] = "Add a Chef";
+}
+
+<h1>Add a chef!</h1>
+<form method="POST" asp-controller="Chef" asp-action="AddChef">
+    <div class="form-group row p-1">
+        <label asp-for="FirstName" class="col-sm-4 col-form-label">First name:</label>
+        <input asp-for="FirstName" class="col-sm-8">
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="LastName" class="col-sm-4 col-form-label">Last name:</label>
+        <input asp-for="LastName" class="col-sm-8">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="DateOfBirth" class="col-sm-4 col-form-label">Date of birth:</label>
+        <input asp-for="DateOfBirth" class="col-sm-8" type="date"> <!-- If this is DateOnly, we have to add type="date" ourselves. -->
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add chef" class="btn btn-primary">
+</form>

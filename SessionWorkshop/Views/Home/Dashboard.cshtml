@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+<h2>Welcome @Context.Session.GetString("name")!</h2>
+<form method="POST" action="/logout">
+    <input type="submit" class="btn btn-danger" value="Log out">
+</form>
+<p>Counter is now @Context.Session.GetInt32("count")</p>
+<form asp-controller="Home" asp-action="Change" method="post">
+    <input type="hidden" name="option" value="addOne">
+    <input type="submit" value="+1" class="btn btn-warning">
+</form>
+<form asp-controller="Home" asp-action="Change" method="post">
+    <input type="hidden" name="option" value="subtractOne">
+    <input type="submit" value="-1" class="btn btn-primary">
+</form>
+<form asp-controller="Home" asp-action="Change" method="post">
+    <input type="hidden" name="option" value="double">
+    <input type="submit" value="x2" class="btn btn-danger">
+</form>
+<form asp-controller="Home" asp-action="Change" method="post">
+    <input type="hidden" name="option" value="addRandom">
+    <input type="submit" value="+Random" class="btn btn-success">
+</form>

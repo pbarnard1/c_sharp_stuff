@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <form method="POST" action="/process">
+        <div>
+            <label for="name">Your name:</label>
+            <input id="name" name="name">
+        </div>
+        <div>
+            <label for="location">Dojo Location:</label>
+            <select name="location">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Orange County">Orange County</option>
+                <option value="Online">Online</option>
+            </select>
+        </div>
+        <div>
+            <label for="language">Favorite language:</label>
+            <select name="language">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="number">Your number:</label>
+            <input id="number" type="number" name="number">
+        </div>
+        <div>
+            <label for="date">Important date in your life:</label>
+            <input id="date" name="date" type="date">
+        </div>
+        <div>
+            <label for="meal">Favorite meal:</label>
+            <input type="radio" name="meal" id="breakfast" value="Breakfast">
+            <label for="breakfast">Breakfast</label>
+            <input type="radio" name="meal" id="lunch" value="Lunch">
+            <label for="lunch">Lunch</label>
+            <input type="radio" name="meal" id="dinner" value="Dinner">
+            <label for="dinner">Dinner</label>
+        </div>
+        <div>
+            <label for="days">Days of the week you enjoy:</label>
+            <input type="checkbox" name="days" id="sunday" value="Sunday">
+            <label for="sunday">Sunday</label>
+            <input type="checkbox" name="days" id="monday" value="Monday">
+            <label for="monday">Monday</label>
+            <input type="checkbox" name="days" id="tuesday" value="Tuesday">
+            <label for="tuesday">Tuesday</label>
+            <input type="checkbox" name="days" id="wednesday" value="Wednesday">
+            <label for="wednesday">Wednesday</label>
+            <input type="checkbox" name="days" id="thursday" value="Thursday">
+            <label for="thursday">Thursday</label>
+            <input type="checkbox" name="days" id="friday" value="Friday">
+            <label for="friday">Friday</label>
+            <input type="checkbox" name="days" id="saturday" value="Saturday">
+            <label for="saturday">Saturday</label>
+        </div>
+        <div>
+            <label for="comment">Comment:</label>
+            <textarea name="comment" rows="3"></textarea>
+        </div>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>

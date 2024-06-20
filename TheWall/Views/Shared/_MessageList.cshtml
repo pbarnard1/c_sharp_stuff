@@ -1,0 +1,37 @@
+@model MessagePostViewModel
+@{
+    var allMessages = @Model.AllMessages;
+}
+@foreach (Message msg in allMessages)
+{
+    <div class="row">
+        <div class="border col-11 offset-1">
+        <p>@msg.Creator.FirstName @msg.Creator.LastName.First() wrote on @msg.CreatedAt.ToString("MMMM dd, yyyy, hh:mm tt"):</p>
+        <p>@msg.Text</p>
+        @if (Context.Session.GetInt32("UserId") == @msg.UserId)
+        {
+            <form asp-action="DeleteMessage" asp-controller="Message" asp-route-id="@msg.MessageId" class="d-inline" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        }
+        </div>
+    @foreach(Comment c in msg.Comments) @* Here we display each comment *@
+    {
+        <div class="border col-10 offset-2">
+            <p>@c.Creator.FirstName @c.Creator.LastName.First() - @c.CreatedAt.ToString("MMMM dd, yyyy hh:mm tt"):</p>
+            <p>@c.Text</p>
+            @if (Context.Session.GetInt32("UserId") == @c.UserId)
+            {
+                <form asp-action="DeleteComment" asp-controller="Comment" asp-route-id="@c.CommentId" class="d-inline" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            }
+        </div>
+    }
+    @await Html.PartialAsync("_CommentForm",@Model.Comment, 
+    new ViewDataDictionary(ViewData) { 
+        {"MessageId", msg.MessageId} // Send along the ID of the message for the form
+    }
+    ) @* Our comment form goes here *@
+    </div>
+}

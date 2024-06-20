@@ -1,0 +1,10 @@
+﻿@model string
+@* The line above will hold the string we've passed in with the ViewModel *@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Here is a message</h1>
+    <p>@Model</p> <!-- The Model annotation will hold the info from the ViewModel -->
+</div>

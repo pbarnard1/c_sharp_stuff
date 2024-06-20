@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+div {
+    display: flex;
+}
+div div {
+    flex: 1;
+    display: block; /* For the p tags */
+    border: 5px solid black;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10%;
+}

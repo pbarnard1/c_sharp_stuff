@@ -1,0 +1,12 @@
+@model List<string>
+@{
+    ViewData["Title"] = "Users";
+}
+<h1>Here is a List of Users:</h1>
+
+<ul>
+    @foreach(string name in @Model)
+    {
+        <li>@name</li>
+    }
+</ul>

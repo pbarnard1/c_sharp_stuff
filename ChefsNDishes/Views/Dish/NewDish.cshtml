@@ -1,0 +1,39 @@
+@model Dish
+@{
+    ViewData["Title"] = "Add a Dish";
+}
+
+<h1>Add a dish!</h1>
+<form method="POST" asp-controller="Dish" asp-action="AddDish">
+    <div class="form-group row p-1">
+        <label asp-for="Name" class="col-sm-4 col-form-label">Name of the dish:</label>
+        <input asp-for="Name" class="col-sm-8">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="Calories" class="col-sm-4 col-form-label">Number of calories:</label>
+        <input asp-for="Calories" class="col-sm-8">
+        <span asp-validation-for="Calories" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="Tastiness" class="col-sm-4 col-form-label">Tastiness:</label>
+        <select asp-for="Tastiness" class="col-sm-8">
+            @for(int i = 1; i <= 5; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+        <span asp-validation-for="Tastiness" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="ChefId" class="col-sm-4 col-form-label">Chef:</label>
+        <select asp-for="ChefId" class="col-sm-8">
+            @foreach(Chef c in ViewBag.AllChefs)
+            {
+                <option value="@c.ChefId">@c.FirstName @c.LastName</option>
+            }
+        </select>
+        <span asp-validation-for="ChefId" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add dish" class="btn btn-primary">
+</form>

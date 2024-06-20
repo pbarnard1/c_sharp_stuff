@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/my_styles.css"> <!-- The ~ means the wwwroot folder -->
+    <title>Data display test</title>
+</head>
+<body>
+    @{
+        int newAge = ViewBag.Age + 10; // Here is some logic to increment the age
+    }
+    <h1>Hello!</h1>
+    <p>My name is @ViewBag.Name, and my age is @ViewBag.Age.</p>
+    <p>Adding 10 to the age gives us @newAge.</p>
+</body>
+</html>

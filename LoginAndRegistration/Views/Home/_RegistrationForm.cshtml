@@ -1,0 +1,30 @@
+@model User
+<p class="fs-1">Register</p> <!-- This partial will hold the User info -->
+<form method="POST" asp-controller="Home" asp-action="Register">
+    <div class="form-group row p-1">
+        <label asp-for="FirstName" class="col-sm-4 col-form-label">First name:</label>
+        <input asp-for="FirstName" class="col-sm-8">
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="LastName" class="col-sm-4 col-form-label">Last name:</label>
+        <input asp-for="LastName" class="col-sm-8">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="Email" class="col-sm-4 col-form-label">Email:</label>
+        <input asp-for="Email" class="col-sm-8">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="Password" class="col-sm-4 col-form-label">Password:</label>
+        <input asp-for="Password" class="col-sm-8">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group row p-1">
+        <label asp-for="ConfirmedPassword" class="col-sm-4 col-form-label">Confirm password:</label>
+        <input asp-for="ConfirmedPassword" class="col-sm-8">
+        <span asp-validation-for="ConfirmedPassword" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Register" class="btn btn-primary">
+</form>

@@ -1,0 +1,50 @@
+@model Category
+@{
+    ViewData["Title"] = "About " + @Model.Name;
+}
+<h1 class="text-center">@Model.Name</h1>
+<div class="row">
+    <div class="col">
+        <p class="fs-4 text-center">Products:</p>
+        @if(Model.Connections.Count == 0)
+        {
+            <p>No products linked yet</p>
+        }
+        else
+        {
+            @foreach(ProductCategoryConnector pc in Model.Connections)
+            {
+                <p class="align-middle d-inline"><a href="/products/@pc.Product.ProductId">@pc.Product.Name</a>
+                <form asp-action="RemoveProductFromCategory" asp-controller="Category" class="d-inline" method="POST">
+                    <input type="hidden" name="CategoryId" value="@Model.CategoryId">
+                    <input type="hidden" name="ProductCategoryConnectorId" value="@pc.ProductCategoryConnectorId">
+                    <input type="Submit" value="Remove" class="btn btn-danger">
+                </form>
+                </p>
+            }
+        }
+    </div>
+    <div class="col">
+        <p class="fs-4 text-center">Add Product:</p>
+        @if(ViewBag.MissingProducts.Count > 0)
+        {
+            <form method="POST" asp-controller="Category" asp-action="AddProductToCategory">
+                <input type="hidden" name="CategoryId" value="@Model.CategoryId">
+                <div class="form-group row p-1">
+                    <label class="col-sm-4 col-form-label">Name:</label>
+                    <select name="ProductId" class="col-sm-8">
+                        @foreach(Product p in ViewBag.MissingProducts)
+                        {
+                            <option value="@p.ProductId">@p.Name</option>
+                        }
+                    </select>
+                </div>
+                <input type="submit" value="Add product" class="btn btn-primary">
+            </form>
+        }
+        else
+        {
+            <p>No products left to add</p>
+        }
+    </div>
+</div>

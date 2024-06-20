@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "All Weddings";
+    Layout = "_LoggedInLayout";
+}
+@model List<Wedding>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Wedding of:</th>
+            <th>Date:</th>
+            <th>Guest count:</th>
+            <th>Actions:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Wedding w in @Model)
+        {
+            <tr class="align-middle">
+                <td><a asp-action="ViewWedding" asp-controller="Wedding" asp-route-id="@w.WeddingId">@w.MarriedOne & @w.MarriedTwo</a></td>
+                <td>@w.WeddingDate</td>
+                <td>@w.Guests.Count</td>
+                @{
+                        if (Context.Session.GetInt32("UserId") == @w.Planner.UserId)
+                        {
+                            <td>
+                                <form asp-action="DeleteWedding" asp-controller="Wedding" asp-route-id="@w.WeddingId" class="d-inline" method="POST">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
+                            </td>
+                        }
+                        else
+                        {
+                            bool isInvited = false;
+                            foreach(Guest g in w.Guests)
+                            {
+                                if (g.UserId == Context.Session.GetInt32("UserId"))
+                                {
+                                    isInvited = true;
+                                    break;
+                                }
+                            }
+                            if (isInvited)
+                            {
+                                <td>
+                                    <form asp-action="RemoveFromWedding" asp-controller="Guest" class="d-inline" method="POST">
+                                        <input type="hidden" name="weddingId" value="@w.WeddingId">
+                                        <input type="submit" value="Un-RSVP" class="btn btn-primary">
+                                    </form>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <form asp-action="InviteToWedding" asp-controller="Guest" class="d-inline" method="POST">
+                                        <input type="hidden" name="weddingId" value="@w.WeddingId">
+                                        <input type="submit" value="RSVP" class="btn btn-primary">
+                                    </form>
+                                </td>
+                            }
+                        }
+                    }
+            </tr>
+        }
+    </tbody>
+</table>

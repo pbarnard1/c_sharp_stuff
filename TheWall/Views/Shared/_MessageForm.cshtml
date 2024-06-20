@@ -1,0 +1,10 @@
+@model Message
+<h1>Post a message!</h1>
+<form method="POST" asp-controller="Message" asp-action="CreateMessage">
+    <div class="form-group row p-1">
+        <label asp-for="Text" class="col-sm-4 col-form-label">Post a message:</label>
+        <textarea asp-for="Text" class="col-sm-8"></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Post" class="btn btn-primary">
+</form>

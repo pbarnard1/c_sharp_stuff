@@ -1,0 +1,40 @@
+﻿@model List<Chef>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 class="text-center">Check out our roster of chefs!</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of birth</th>
+            <th>Age</th>
+            <th># of dishes</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(Chef c in @Model)
+    {
+        <tr class="align-middle">
+            <td><a href="/chefs/@c.ChefId">@c.FirstName @c.LastName</a></td>
+            <td>@c.DateOfBirth</td>
+            @{
+                // Source: https://stackoverflow.com/questions/9/how-do-i-calculate-someones-age-based-on-a-datetime-type-birthday
+                DateOnly birthDate = (DateOnly) c.DateOfBirth;
+                var x = 5;
+                var age = DateTime.Now.Year - birthDate.ToDateTime(TimeOnly.MinValue).Year; // Calculate age
+                if (birthDate.ToDateTime(TimeOnly.MinValue) > DateTime.Today.AddYears(-age)) age--; // Check if birthday occurred or not
+            }
+            <td>@age</td>
+            <td>@c.AllDishes.Count</td>
+            <td>
+                <a asp-action="EditChefPage" asp-controller="Chef" asp-route-id="@c.ChefId" class="btn btn-warning">Edit</a>
+                <form asp-action="DeleteChef" asp-controller="Chef" asp-route-id="@c.ChefId" class="d-inline" method="POST">
+                    <input type="Submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

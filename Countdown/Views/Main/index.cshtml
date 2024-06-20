@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/my_styles.css">
+    <title>Document</title>
+</head>
+<body>
+    @{
+        TimeSpan diff = ViewBag.EndTime - ViewBag.StartTime; // Calculate the interval between two Datetime objects
+    }
+    <div>
+        <div>
+            <p>Starting time:</p>
+            <p>@ViewBag.StartTime.ToString("MMM d, yyyy")</p>
+            <p>@ViewBag.StartTime.ToString("hh:mm tt")</p>
+        </div>
+        <div>
+            <p>Ending time:</p>
+            <p>@ViewBag.EndTime.ToString("MMM d, yyyy")</p>
+            <p>@ViewBag.EndTime.ToString("hh:mm tt")</p>
+        </div>
+    </div>
+    <p>Time Remaining:</p>
+    <p>@diff.Days day(s), @diff.Hours hour(s) and @diff.Minutes minute(s)</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "All Messages";
+    Layout = "_LoggedInLayout";
+}
+@model MessagePostViewModel
+<div>
+    @await Html.PartialAsync("_MessageForm", Model.Message)
+    <h2>Here are all the messages:</h2>
+    @await Html.PartialAsync("_MessageList", Model)
+</div>

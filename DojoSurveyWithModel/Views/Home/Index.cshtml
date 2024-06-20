@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Dojo Survey";
+}
+
+<div>
+    <form method="POST" action="/process">
+        <div class="form-group row p-1">
+            <label for="Name" class="col-sm-4 col-form-label">Your name:</label>
+            <input id="name" name="name" class="col-sm-8">
+        </div>
+        <div class="form-group row p-1">
+            <label for="location" class="col-sm-4 col-form-label">Dojo Location:</label>
+            <select name="Location" class="col-sm-8">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Orange County">Orange County</option>
+                <option value="Online">Online</option>
+            </select>
+        </div>
+        <div class="form-group row p-1">
+            <label for="language" class="col-sm-4 col-form-label">Favorite language:</label>
+            <select name="Language" class="col-sm-8">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group row p-1">
+            <label for="number" class="col-sm-4 col-form-label">Your number:</label>
+            <input id="number" type="number" name="Number" class="col-sm-8">
+        </div>
+        <div class="form-group row p-1">
+            <label for="date" class="col-sm-4 col-form-label">Important date in your life:</label>
+            <input id="date" name="Date" type="date" class="col-sm-8">
+        </div>
+        <div class="form-group row p-1">
+            <label for="meal" class="col-sm-4 col-form-label">Favorite meal:</label>
+            <div class="col p-1">
+                <div class="form-check-inline p-1">
+                    <input type="radio" name="Meal" id="breakfast" value="Breakfast" class="form-check-input">
+                    <label for="breakfast" class="form-check-label">Breakfast</label>
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" name="Meal" id="lunch" value="Lunch" class="form-check-input">
+                    <label for="lunch" class="form-check-label">Lunch</label>
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" name="Meal" id="dinner" value="Dinner" class="form-check-input">
+                    <label for="dinner" class="form-check-label">Dinner</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row p-1">
+            <label for="days" class="col-sm-4 col-form-label">Days of the week you enjoy:</label>
+            <div class="col p-1">
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Sunday" value="Sunday" class="form-check-input">
+                    <label for="Sunday" class="form-check-label">Sunday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Monday" value="Monday" class="form-check-input">
+                    <label for="Monday" class="form-check-label">Monday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Tuesday" value="Tuesday" class="form-check-input">
+                    <label for="Tuesday" class="form-check-label">Tuesday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Wednesday" value="Wednesday" class="form-check-input">
+                    <label for="Wednesday" class="form-check-label">Wednesday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Thursday" value="Thursday" class="form-check-input">
+                    <label for="Thursday" class="form-check-label">Thursday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Friday" value="Friday" class="form-check-input">
+                    <label for="Friday" class="form-check-label">Friday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" name="Days" id="Saturday" value="Saturday" class="form-check-input">
+                    <label for="Saturday" class="form-check-label">Saturday</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row p-1">
+            <label for="comment" class="col-sm-4 col-form-label">Comment (optional):</label>
+            <textarea name="Comment" rows="3" class="form-control p-1 m-1"></textarea>
+            <input type="submit" value="Send" class="offset-11 col-1 btn btn-primary">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Registration Page";
+}
+
+<div>
+    @model Registration
+    <form method="POST" action="/process">
+        <div class="form-group row p-1">
+            <label asp-for="Name" class="col-sm-4 col-form-label">Your name:</label>
+            <input id="name" asp-for="Name" class="col-sm-8">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Email" class="col-sm-4 col-form-label">Your email:</label>
+            <input id="name" asp-for="Email" class="col-sm-8">
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="DateOfBirth" class="col-sm-4 col-form-label">Date of birth:</label>
+            <input id="date" asp-for="DateOfBirth" type="date" class="col-sm-8"> <!-- Include the type here! -->
+            <span asp-validation-for="DateOfBirth"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Password" class="col-sm-4 col-form-label">Password:</label>
+            <input id="name" asp-for="Password" class="col-sm-8">
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="FavoriteOddNumber" class="col-sm-4 col-form-label">Favorite odd number:</label>
+            <input id="number" asp-for="FavoriteOddNumber" class="col-sm-8">
+            <span asp-validation-for="FavoriteOddNumber"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="FavoritePrimeNumber" class="col-sm-4 col-form-label">Favorite prime number:</label>
+            <input id="number" asp-for="FavoritePrimeNumber" class="col-sm-8">
+            <span asp-validation-for="FavoritePrimeNumber"></span>
+        </div>
+        <input type="submit" value="Send" class="offset-11 col-1 btn btn-primary">
+    </form>
+</div>

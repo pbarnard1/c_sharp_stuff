@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Dojo Survey";
+}
+
+<div>
+    @model Survey
+    <form method="POST" action="/process">
+        <div class="form-group row p-1">
+            <label asp-for="Name" class="col-sm-4 col-form-label">Your name:</label>
+            <input id="name" asp-for="Name" class="col-sm-8">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Location" class="col-sm-4 col-form-label">Dojo Location:</label>
+            <select asp-for="Location" class="col-sm-8">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Orange County">Orange County</option>
+                <option value="Online">Online</option>
+            </select>
+            <span asp-validation-for="Location"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Language" class="col-sm-4 col-form-label">Favorite language:</label>
+            <select asp-for="Language" class="col-sm-8">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Other">Other</option>
+            </select>
+            <span asp-validation-for="Language"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Number" class="col-sm-4 col-form-label">Your number:</label>
+            <input id="number" asp-for="Number" class="col-sm-8">
+            <span asp-validation-for="Number"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Date" class="col-sm-4 col-form-label">Important date in your life:</label>
+            <input id="date" asp-for="Date" type="date" class="col-sm-8">
+            <span asp-validation-for="Date"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Meal" class="col-sm-4 col-form-label">Favorite meal:</label>
+            <div class="col p-1">
+                <div class="form-check-inline p-1">
+                    <input type="radio" asp-for="Meal" id="breakfast" value="Breakfast" class="form-check-input">
+                    <label asp-for="Meal" class="form-check-label">Breakfast</label>
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" asp-for="Meal" id="lunch" value="Lunch" class="form-check-input">
+                    <label asp-for="Meal" class="form-check-label">Lunch</label>
+                </div>
+                <div class="form-check-inline">
+                    <input type="radio" asp-for="Meal" id="dinner" value="Dinner" class="form-check-input">
+                    <label asp-for="Meal" class="form-check-label">Dinner</label>
+                </div>
+            </div>
+            <span asp-validation-for="Meal"></span>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Days" class="col-sm-4 col-form-label">Days of the week you enjoy:</label>
+            <div class="col p-1">
+                <div class="form-check-inline p-1">
+                    <input type="checkbox" asp-for="Days[0]" id="Sunday" class="form-check-input">
+                    <label asp-for="Days[0]" class="form-check-label">Sunday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input asp-for="Days[1]" id="Monday" class="form-check-input">
+                    <label asp-for="Days[1]" class="form-check-label">Monday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input asp-for="Days[2]" id="Tuesday" class="form-check-input">
+                    <label asp-for="Days[2]" class="form-check-label">Tuesday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input asp-for="Days[3]" id="Wednesday" class="form-check-input">
+                    <label asp-for="Days[3]" class="form-check-label">Wednesday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input asp-for="Days[4]" id="Thursday" class="form-check-input">
+                    <label asp-for="Days[4]" class="form-check-label">Thursday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input asp-for="Days[5]" id="Friday" class="form-check-input">
+                    <label asp-for="Days[5]" class="form-check-label">Friday</label>
+                </div>
+                <div class="form-check-inline p-1">
+                    <input asp-for="Days[6]" id="Saturday" class="form-check-input">
+                    <label asp-for="Days[6]" class="form-check-label">Saturday</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row p-1">
+            <label asp-for="Comment" class="col-sm-4 col-form-label">Comment (optional):</label>
+            <textarea asp-for="Comment" rows="3" class="form-control p-1 m-1"></textarea>
+            <span asp-validation-for="Comment"></span>
+            <input type="submit" value="Send" class="offset-11 col-1 btn btn-primary">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food list</title>
+</head>
+<body>
+    <h1>Here are some delicious foods!</h1>
+    @{ // Run some basic C# code here
+        List<string> favoriteFoods = new List<string>() {"apple pie","pizza","cinnamon rolls","lasagna","donuts","chocolate cake","burritos","chili","rice"};
+        string name = "Johnny";
+    }
+    <ul>
+    @{
+        foreach(String food in favoriteFoods)
+        {
+            if (food.ToLower().StartsWith('c'))
+            {
+                <li style="color: red; background-color: lightblue;">@food</li> <!-- Add color if the food starts with a "c" -->
+            }
+            else
+            {
+                <li>@food</li>
+            }
+        }
+    }
+    </ul>
+    <p>My name is @name</p> <!-- We use the at symbol and then a variable or keyword as needed -->
+</body>
+</html>

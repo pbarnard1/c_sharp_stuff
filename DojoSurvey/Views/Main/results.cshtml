@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey results</title>
+</head>
+<body>
+    <h1>Results page!</h1>
+    <p>Name: @ViewBag.Name</p>
+    <p>Location: @ViewBag.Location</p>
+    <p>Language: @ViewBag.Language</p>
+    <p>Number: @ViewBag.Number</p>
+    <p>Important Date: @ViewBag.Date</p>
+    <p>Favorite Meal: @ViewBag.Meal</p>
+    @{
+        @if (!ViewBag.Comment.Equals("No comment"))
+        {
+            <p>Comment: @ViewBag.Comment</p>
+        }
+        else
+        {
+            <p>Comment: <span style="color: gray;">@ViewBag.Comment</span></p>
+        }
+    }
+    <p>Favorite days:</p>
+    @{
+        @if (ViewBag.Days.Length > 0)
+        {
+            <ul>
+            @foreach(string day in ViewBag.Days)
+            {
+                <li>@day</li>
+            }
+            </ul>
+        }
+        else
+        {
+            <p>None selected</p>
+        }
+    }
+    <a href="/">Go back</a>
+</body>
+</html>

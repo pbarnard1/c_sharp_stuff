@@ -1,0 +1,12 @@
+@model Comment
+<h3 class="offset-2">Post a comment</h3>
+<form method="POST" asp-controller="Comment" asp-action="CreateComment">
+    <div class="form-group row p-1 offset-2">
+        @* <p>@ViewData["MessageId"]</p> *@
+        <input type="hidden" asp-for="MessageId" value="@ViewData["MessageId"]">
+        <label asp-for="Text" class="col-sm-4 col-form-label">Post a message:</label>
+        <textarea asp-for="Text" class="col-sm-8"></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Comment" class="btn btn-primary offset-2">
+</form>

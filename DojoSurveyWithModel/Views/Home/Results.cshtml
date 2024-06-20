@@ -1,0 +1,39 @@
+﻿@model Survey
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Submitted Info:</h1>
+<p>Name: @Model.Name</p>
+<p>Location: @Model.Location</p>
+<p>Language: @Model.Language</p>
+<p>Number: @Model.Number</p>
+<p>Important Date: @Model.Date</p>
+<p>Favorite Meal: @Model.Meal</p>
+@{
+    @if (@Model.Comment != null)
+    {
+        <p>Comment: @Model.Comment</p>
+    }
+    else
+    {
+        <p>Comment: <span style="color: gray;">No comment</span></p>
+    }
+}
+<p>Favorite days:</p>
+@{
+    @if (@Model.Days.Count > 0)
+    {
+        <ul>
+        @foreach(string day in @Model.Days)
+        {
+            <li>@day</li>
+        }
+        </ul>
+    }
+    else
+    {
+        <p>None selected</p>
+    }
+}
+<a href="/" class="btn btn-primary">Go back</a>

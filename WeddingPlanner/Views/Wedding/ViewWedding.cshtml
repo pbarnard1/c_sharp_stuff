@@ -1,0 +1,24 @@
+@model Wedding
+@{
+    ViewData["Title"] = "About wedding";
+    Layout = "_LoggedInLayout";
+}
+<div class="row">
+    <h1>@Model.MarriedOne & @Model.MarriedTwo's wedding:</h1>
+    <p>Date: @Model.WeddingDate</p>
+    <p>Added by: @Model.Planner.FirstName @Model.Planner.LastName</p>
+    <p>Guests:</p>
+    @if(@Model.Guests.Count == 0)
+    {
+        <p>No guests</p>
+    }
+    else
+    {
+        <ul>
+        @foreach (Guest thisGuest in @Model.Guests)
+        {
+            <li>@thisGuest.User.FirstName @thisGuest.User.LastName</li>
+        }
+        </ul>
+    }
+</div>

@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+nav, h1, form {
+    text-align: center;
+}
+
+span {
+    font-weight: bold;
+}
+#all_projects {
+    border: 5px solid black;
+    margin: 0 20%;
+}
+.infobox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,23 @@
+@model Chef
+@{
+    ViewData["Title"] = "About chef " + @Model.FirstName + " " + @Model.LastName;
+}
+
+<h1>About @Model.FirstName @Model.LastName:</h1>
+<p>Date of birth: @Model.DateOfBirth</p>
+@{
+    if(@Model.AllDishes.Count == 0)
+    {
+        <p>No dishes created yet</p>
+    }
+    else
+    {
+        <p>Dishes created:</p>
+        <ul>
+        @foreach(Dish d in @Model.AllDishes)
+        {
+            <li>@d.Name</li>
+        }
+        </ul>
+    }
+}
